@@ -49,3 +49,11 @@ p1.getAge();     //外层函数每次运行，都会生成一个新的闭包，
     processData(tmp);
     storeData(tmp);
 }());
+
+
+
+(function f(){
+    'use strict';
+    eval('val foo=123');
+    console.log(foo);
+})()
