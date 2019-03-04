@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        if (window.XMLHttpRequest) {
+            httpRequest = new XMLHttpRequest();
+            console.log('httpRequest')
+        } else if (window.ActiveXObject) {
+            httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        httpRequest.open('GET', 'https://brain.lololun.top/telecom/customer/plan/getPlanList?c_id=123456')
+        httpRequest.send(null);
+        console.log('发送')
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState === 4) {
+                if (httpRequest.status === 200) {
+                    console.log(httpRequest.responseText);
+                } else {
+                    console.log('访问失败')
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
