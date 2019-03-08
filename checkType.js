@@ -58,4 +58,4 @@ Array.isArray([])           //true
 Array.isArray({})           //false
 
 
-//为什么null作为原型链的最后一个环节却不能作为右边的原型对象
+//为什么null作为原型链的最后一个环节却不能作为右边的原型对象,null其实还是算基本类型还是OBJECT对象呢。
