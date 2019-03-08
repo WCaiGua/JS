@@ -35,6 +35,9 @@ Object.prototype.isPrototypeOf(v);       //true
 var obj = Object.create(null);
 typeof obj;                             //"object"
 obj instanceof Object;                  //false
+//此外
+undefined instanceof Object;            //false
+null instanceof Object;                 //false
 
 
 //对象的toString可以检测对象类型
@@ -53,3 +56,6 @@ toString.call(null); // [object Null]
 //检查是不是数组
 Array.isArray([])           //true
 Array.isArray({})           //false
+
+
+//为什么null作为原型链的最后一个环节却不能作为右边的原型对象
