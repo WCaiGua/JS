@@ -17,6 +17,7 @@ if (typeof v === "undefined") {
 
 }
 typeof null;            //"object"
+typeof NULL;            //"undefined"
 typeof {};              //"object"
 typeof [];              //"object"  空数组（[]）的类型也是object，这表示在 JavaScript 内部，数组本质上只是一种特殊的对象。
 //这里顺便提一下，instanceof运算符可以区分数组和对象。
