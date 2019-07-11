@@ -19,8 +19,9 @@ var delRepeat = function(arr){
 var delRepeat = function(arr){
     var norepeat = [];
     for(var i=0;i<arr.length;i++){
-        if(norepeat.indexOf(arr[i]) !== -1)return;
+        if(norepeat.indexOf(arr[i]) !== -1)continue;
         norepeat.push(arr[i]);
     }
+	return norepeat;
 }
 //数组去重第一个是包括数组里有对象
