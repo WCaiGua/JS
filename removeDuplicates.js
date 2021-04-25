@@ -24,7 +24,6 @@ var removeDuplicates = function(nums) {
         return ++slow;
 };
 
-
 /**
  * @param {number[]} nums
  * @return {number}
