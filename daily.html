@@ -1,0 +1,127 @@
+<script>
+// 序列生成器（指定范围）
+const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + (i * step))
+const t1t = range(0, 4, 1)
+console.log(t1t)
+
+
+//使用映射改善排序
+let list = ['Delta', 'alpha', 'CHARLIE', 'bravo']
+
+/**
+ * 排序字符数组
+ * @param list
+ * @returns {*}
+ */
+function sortFn(list) {
+  //先将数组中的元素比较的实际值取出来
+  let mapped = list.map((ele, i) => {
+    return { index: i, value: ele.toLowerCase() }
+  })
+  // 排序
+  mapped.sort((a, b) => {
+    // if (a - b) return -1
+    // if (a > b) return 1
+    // return 0
+    return +(a.value > b.value) || +(a.value === b.value) - 1
+  })
+  // 排序后再将数组恢复
+  const res = mapped.map(ele => {
+    return list[ele.index]
+  })
+
+  console.log(res)
+  return res
+}
+
+sortFn(list)
+
+const containsDuplicate = function(nums) {
+  nums.sort((a, b) => a - b)
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === nums[i + 1]) {
+      return true
+    }
+  }
+  return false
+}
+
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+const containsDuplicate2 = function(nums) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] === nums[j]) {
+        return true
+      }
+    }
+  }
+  return false
+}
+
+const containsDuplicate3 = function(nums) {
+  let arr = new Set()
+  for (let i = 0; i < nums.length; i++) {
+    if (arr.has(nums[i])) {
+      return true
+    }
+    arr.add(nums[i])
+  }
+  return false
+}
+
+const containsDuplicate4 = function(nums) {
+  let arr = [...new Set(nums)]
+  return nums.length !== arr.length
+}
+
+const singleNumber = function(nums) {
+  for (let i = 0; i < nums.length; i++) {
+    const front = nums.indexOf(nums[i])
+    const end = nums.lastIndexOf(nums[i])
+    if (front === end) {
+      return nums[i]
+    }
+  }
+}
+
+const singleNumber2 = function(nums) {
+
+}
+
+singleNumber([2, 2, 1])
+
+
+const swap = function(a, b) {
+  return [a + b - a, a + b - b]
+}
+
+const swap2 = function(a, b) {
+  // a = a ^ b
+  // b = a ^ b
+  // a = a ^ b
+  // return [a, b]
+  return [a ^ b ^ a, a ^ b ^ b]
+}
+
+const plusOne = function(digits) {
+  let len = digits.length
+  for (let i = len - 1; i >= 0; i--) {
+    digits[i] = digits[i] + 1
+    if (digits[i] <= 9) {
+      return digits
+    }else if(i === 0){
+      digits[i] = 0
+      digits.unshift(1)
+      return digits
+    }else{
+      digits[i] = 0
+    }
+  }
+}
+
+plusOne([9])
+
+</script>
